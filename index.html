@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blinda: cofre de senhas sem internet</title>
+<meta name="description" content="Um cofre de senhas que fica só no seu celular. Sem internet, sem conta e sem nuvem.">
+<meta property="og:title" content="Blinda: cofre de senhas sem internet">
+<meta property="og:description" content="Suas senhas blindadas só no seu celular. Sem internet, sem conta e sem nuvem.">
+<meta property="og:image" content="https://blinda-app.github.io/imagens/destaque.png">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" type="image/svg+xml" href="imagens/icone.svg">
+<link rel="apple-touch-icon" href="imagens/icone-192.png">
+<style>
+  @font-face { font-family: Geist; font-weight: 400; font-display: swap; src: url("fontes/Geist_400Regular.ttf"); }
+  @font-face { font-family: Geist; font-weight: 600; font-display: swap; src: url("fontes/Geist_600SemiBold.ttf"); }
+  :root {
+    --fundo: #ffffff; --fundo-suave: #f4f6fa; --texto: #141820; --suave: #5b6370; --linha: #e3e6ea;
+    --marca: #2563eb; --marca-forte: #1d4fc4; --sobre-marca: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --fundo: #111318; --fundo-suave: #191c23; --texto: #e8eaed; --suave: #a2a9b4; --linha: #2a2e36; --marca: #5b8cff; --marca-forte: #3b6fe8; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--fundo); color: var(--texto); font: 17px/1.6 Geist, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  a { color: var(--marca); }
+  .largura { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  header { padding: 20px 0; }
+  header .largura { display: flex; align-items: center; gap: 10px; }
+  header img { width: 32px; height: 32px; }
+  header strong { font-size: 20px; font-weight: 600; letter-spacing: -0.3px; }
+
+  .abertura { padding: 56px 0 64px; text-align: center; }
+  .abertura img { width: 88px; height: 88px; }
+  h1 { font-size: clamp(36px, 7vw, 60px); line-height: 1.08; letter-spacing: -1.5px; font-weight: 600; margin: 24px 0 16px; }
+  .abertura p { font-size: clamp(18px, 2.6vw, 21px); color: var(--suave); max-width: 560px; margin: 0 auto 28px; }
+  .selos { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .selos li { font-size: 15px; padding: 7px 16px; border: 1px solid var(--linha); border-radius: 999px; }
+  .breve { display: inline-block; margin-top: 28px; font-size: 15px; color: var(--suave); }
+
+  section { padding: 56px 0; }
+  h2 { font-size: clamp(26px, 4vw, 34px); line-height: 1.2; letter-spacing: -0.6px; font-weight: 600; margin: 0 0 12px; }
+  .intro { color: var(--suave); margin: 0 0 32px; max-width: 620px; }
+
+  .pilares { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .pilar { background: var(--fundo-suave); border-radius: 16px; padding: 24px; }
+  .pilar h3 { font-size: 19px; font-weight: 600; margin: 0 0 6px; }
+  .pilar p { margin: 0; color: var(--suave); font-size: 16px; }
+
+  .galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .galeria img { width: 100%; height: auto; border-radius: 14px; display: block; }
+  @media (max-width: 760px) {
+    .galeria { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 8px; margin: 0 -20px; padding-left: 20px; padding-right: 20px; }
+    .galeria img { flex: 0 0 66%; width: 66%; scroll-snap-align: center; }
+  }
+
+  .recursos { columns: 2 280px; column-gap: 32px; padding: 0; margin: 0; list-style: none; }
+  .recursos li { break-inside: avoid; padding: 12px 0; border-bottom: 1px solid var(--linha); }
+  .recursos strong { font-weight: 600; }
+  .recursos span { color: var(--suave); }
+
+  .aviso { background: var(--fundo-suave); border-radius: 16px; padding: 24px; }
+  .aviso p { margin: 0; }
+
+  footer { border-top: 1px solid var(--linha); padding: 28px 0 40px; color: var(--suave); font-size: 15px; }
+  footer .largura { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="largura"><img src="imagens/icone.svg" alt=""><strong>Blinda</strong></div>
+</header>
+
+<main>
+  <div class="abertura largura">
+    <img src="imagens/icone.svg" alt="Ícone do Blinda">
+    <h1>Suas senhas, blindadas.</h1>
+    <p>Um cofre de senhas que fica só no seu celular, protegido por uma senha mestra que só você sabe.</p>
+    <ul class="selos"><li>Sem internet</li><li>Sem conta</li><li>Sem nuvem</li></ul>
+    <span class="breve">Para Android. Em breve na Google Play.</span>
+  </div>
+
+  <section>
+    <div class="largura">
+      <h2>Ninguém além de você</h2>
+      <p class="intro">O Blinda não tem servidor. O que você guarda não sai do celular, então não há nada para vazar do lado de cá.</p>
+      <div class="pilares">
+        <div class="pilar"><h3>Sem internet</h3><p>O app não tem permissão de acesso à internet no Android. Ele não consegue enviar seus dados nem por engano.</p></div>
+        <div class="pilar"><h3>Sem conta</h3><p>Sem cadastro, sem e-mail, sem login. Você instala, cria a senha mestra e começa a usar.</p></div>
+        <div class="pilar"><h3>Só você abre</h3><p>Tudo fica protegido com criptografia AES-256. Sem a sua senha mestra, ninguém abre o cofre, nem quem fez o app.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="largura">
+      <h2>Por dentro do app</h2>
+      <p class="intro">Senhas, cartões, documentos e códigos de verificação num lugar só.</p>
+      <div class="galeria">
+        <img src="imagens/capturas/01.jpg" width="540" height="960" loading="lazy" alt="Lista de senhas: senhas só no seu celular">
+        <img src="imagens/capturas/02.jpg" width="540" height="960" loading="lazy" alt="Tela de desbloqueio com a senha mestra">
+        <img src="imagens/capturas/03.jpg" width="540" height="960" loading="lazy" alt="Modelos de senha: site, banco, Wi-Fi, cartão, documento e mais">
+        <img src="imagens/capturas/04.jpg" width="540" height="960" loading="lazy" alt="Código de verificação em duas etapas dentro do app">
+        <img src="imagens/capturas/05.jpg" width="540" height="960" loading="lazy" alt="Gerador de senhas fortes">
+        <img src="imagens/capturas/06.jpg" width="540" height="960" loading="lazy" alt="Avisos de senhas repetidas, vencimentos e backup">
+        <img src="imagens/capturas/07.jpg" width="540" height="960" loading="lazy" alt="Família: cofres da casa sem internet">
+        <img src="imagens/capturas/08.jpg" width="540" height="960" loading="lazy" alt="Backup protegido, sem nuvem">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="largura">
+      <h2>O que cabe no Blinda</h2>
+      <ul class="recursos">
+        <li><strong>Senhas de sites e apps</strong> <span>com gerador e a força de cada uma.</span></li>
+        <li><strong>Senhas físicas</strong> <span>do cadeado, do alarme, do portão.</span></li>
+        <li><strong>Cartões e documentos</strong> <span>RG, CPF, CNH, passaporte e outros.</span></li>
+        <li><strong>Wi-Fi</strong> <span>com QR Code para a visita entrar na rede.</span></li>
+        <li><strong>Códigos 2FA</strong> <span>a verificação em duas etapas no mesmo lugar.</span></li>
+        <li><strong>Preenchimento automático</strong> <span>em sites e apps.</span></li>
+        <li><strong>Avisos</strong> <span>de senhas repetidas, vencimentos e hora do backup.</span></li>
+        <li><strong>Backup sem nuvem</strong> <span>num arquivo protegido pela sua senha mestra.</span></li>
+        <li><strong>Família sem internet</strong> <span>cofres da casa, sem servidor no meio.</span></li>
+        <li><strong>Importar</strong> <span>de planilhas CSV de outros gerenciadores.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="largura">
+      <div class="aviso">
+        <p><strong>Importante:</strong> como nada sai do seu celular, só você pode recuperar o cofre. Guarde bem a senha mestra e faça backup.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="largura">
+    <span>© 2026 Blinda</span>
+    <a href="politica-de-privacidade/">Política de privacidade</a>
+    <a href="mailto:suporte.blinda.app@gmail.com">Contato</a>
+  </div>
+</footer>
+</body>
+</html>

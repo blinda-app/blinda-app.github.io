@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blinda: política de privacidade</title>
+<link rel="icon" type="image/svg+xml" href="../imagens/icone.svg">
+<style>
+  :root { --fundo:#ffffff; --texto:#1c1f24; --suave:#5b6370; --linha:#e3e6ea; --marca:#2563eb; }
+  @media (prefers-color-scheme: dark) { :root { --fundo:#121417; --texto:#e8eaed; --suave:#a2a9b4; --linha:#2a2e34; --marca:#7da2ff; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--fundo); color:var(--texto); font:16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:40px 16px 64px; }
+  h1 { font-size:28px; line-height:1.25; margin:0 0 4px; }
+  h2 { font-size:19px; margin:36px 0 8px; }
+  p, li { color:var(--texto); }
+  .data { color:var(--suave); margin:0 0 28px; }
+  .resumo { border:1px solid var(--linha); border-radius:12px; padding:16px 20px; }
+  .resumo p { margin:0; }
+  ul { padding-left:22px; }
+  table { width:100%; border-collapse:collapse; margin:8px 0; }
+  th, td { text-align:left; vertical-align:top; padding:10px 8px; border-bottom:1px solid var(--linha); }
+  th { color:var(--suave); font-weight:600; font-size:14px; }
+  a { color:var(--marca); }
+  .voltar { margin:0 0 24px; }
+  .voltar a { text-decoration:none; font-weight:600; }
+</style>
+</head>
+<body>
+<main>
+  <p class="voltar"><a href="../">← Blinda</a></p>
+  <h1>Política de privacidade do Blinda</h1>
+  <p class="data">Em vigor desde 15 de novembro de 2026</p>
+
+  <div class="resumo">
+    <p><strong>Em uma frase:</strong> o Blinda não coleta, não envia e não vende nenhum dado seu. O app não tem permissão de acesso à internet, e tudo que você guarda fica criptografado no seu celular.</p>
+  </div>
+
+  <h2>1. Quem somos</h2>
+  <p>O Blinda é um gerenciador de senhas para Android, feito por um desenvolvedor independente. Esta política vale para o app Blinda (pacote <code>app.blinda</code>) instalado pela Google Play ou pelo arquivo oficial de instalação.</p>
+
+  <h2>2. O que o Blinda coleta</h2>
+  <p><strong>Nada.</strong> O app não tem servidor, não pede cadastro, não usa ferramentas de estatística ou de anúncios e não envia relatórios de erro. Como o Android não dá ao Blinda permissão de internet, o app não consegue enviar dados para lugar nenhum, nem por engano.</p>
+
+  <h2>3. O que fica no seu celular</h2>
+  <p>As senhas, cartões, documentos, notas, códigos de verificação em duas etapas e configurações que você cadastra ficam num banco de dados criptografado com AES-256, com a chave tirada da sua senha mestra pelo Argon2id. A senha mestra não é guardada em lugar nenhum. Sem ela, ninguém abre o cofre: nem nós, nem a Google.</p>
+  <p>Como não temos cópia dos seus dados, <strong>não conseguimos recuperar o cofre</strong> se você esquecer a senha mestra ou desinstalar o app sem backup.</p>
+
+  <h2>4. Quando os dados saem do celular</h2>
+  <p>Só quando você decide, e sempre protegidos:</p>
+  <ul>
+    <li><strong>Backup:</strong> o arquivo <code>.blinda</code> que você exporta é criptografado com a sua senha mestra e vai para o lugar que você escolher. O Blinda não envia o arquivo para nenhum servidor.</li>
+    <li><strong>Compartilhar por QR Code:</strong> a senha passa direto de um celular para o outro, cara a cara, com uma chave nova a cada troca.</li>
+    <li><strong>Família:</strong> os cofres compartilhados são sincronizados por arquivos criptografados, que só as pessoas do cofre abrem e que você mesmo envia pelo app que preferir. Quem envia o arquivo é esse outro app, não o Blinda.</li>
+    <li><strong>Importar planilha:</strong> o arquivo CSV é lido no celular. O Blinda não o copia nem o envia.</li>
+  </ul>
+
+  <h2>5. Permissões do Android</h2>
+  <table>
+    <tr><th>Permissão</th><th>Para quê</th></tr>
+    <tr><td>Câmera</td><td>Ler QR Codes (receber uma senha compartilhada, entrar num cofre da Família e cadastrar códigos 2FA). A imagem é lida no celular e não é guardada.</td></tr>
+    <tr><td>Biometria</td><td>Abrir o cofre com a digital ou o rosto, se você ativar. O Blinda não recebe sua biometria; quem confere é o Android.</td></tr>
+    <tr><td>Preenchimento automático</td><td>Sugerir login e senha em sites e apps, se você ativar nas configurações do Android. Nada sai do celular.</td></tr>
+    <tr><td>Vibração e detectar captura de tela</td><td>Pedidas por componentes do Android usados no app. Não dão acesso a nenhum dado seu. As telas do cofre não podem ser capturadas.</td></tr>
+  </table>
+
+  <h2>6. Compras dentro do app</h2>
+  <p>Se o Blinda passar a oferecer planos pagos, a compra será feita pela Google Play. Quem recebe o pagamento e os dados do cartão é a Google, conforme a <a href="https://policies.google.com/privacy?hl=pt-BR">Política de Privacidade do Google</a>. O Blinda só pergunta à Play Store qual plano a sua conta comprou, e essa resposta fica no celular.</p>
+
+  <h2>7. Crianças</h2>
+  <p>O Blinda não é feito para menores de 13 anos e não coleta dados de ninguém, inclusive de crianças.</p>
+
+  <h2>8. Seus direitos (LGPD)</h2>
+  <p>A Lei Geral de Proteção de Dados garante acesso, correção e exclusão dos seus dados pessoais. Como o Blinda não guarda nada fora do seu celular, você exerce esses direitos direto no app: vê e edita tudo no cofre, e apaga tudo em <em>Configurações &gt; Segurança &gt; Apagar tudo</em> ou desinstalando o app.</p>
+
+  <h2>9. Mudanças nesta política</h2>
+  <p>Se esta política mudar, a nova versão será publicada neste mesmo endereço, com a data atualizada no topo. Uma mudança que passe a coletar qualquer dado só acontece com aviso no app antes.</p>
+
+  <h2>10. Contato</h2>
+  <p>Dúvidas sobre privacidade: <a href="mailto:suporte.blinda.app@gmail.com">suporte.blinda.app@gmail.com</a></p>
+</main>
+</body>
+</html>
