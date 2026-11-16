@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ajuda do Blinda</title>
+<meta name="description" content="Esqueceu a senha mestra, trocou de celular ou quer trazer as senhas do Google? O passo a passo do Blinda.">
+<meta name="theme-color" content="#2563eb">
+<link rel="icon" type="image/svg+xml" href="../imagens/icone.svg">
+<style>
+  @font-face { font-family: Geist; font-weight: 400; font-display: swap; src: url("../fontes/Geist_400Regular.ttf") format("truetype"); }
+  @font-face { font-family: Geist; font-weight: 500; font-display: swap; src: url("../fontes/Geist_500Medium.ttf") format("truetype"); }
+  @font-face { font-family: Geist; font-weight: 600; font-display: swap; src: url("../fontes/Geist_600SemiBold.ttf") format("truetype"); }
+  @font-face { font-family: "Geist Mono"; font-weight: 500; font-display: swap; src: url("../fontes/GeistMono_500Medium.ttf") format("truetype"); }
+  :root {
+    --fundo: #fbfcfe; --superficie: #ffffff; --fundo-suave: #f2f5fa; --texto: #0c1222; --suave: #566074; --linha: #e3e8f0;
+    --marca: #2563eb; --marca-suave: #e8effe; --alerta: #9a3412; --alerta-suave: #fff4ec; --mono: "Geist Mono", ui-monospace, monospace;
+    --sombra: 0 1px 2px rgba(12,18,34,.04), 0 12px 32px -12px rgba(12,18,34,.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --fundo: #0a0d14; --superficie: #11151e; --fundo-suave: #141924; --texto: #e9edf5; --suave: #a1aabb; --linha: #222a37;
+      --marca: #5b8cff; --marca-suave: #16213d; --alerta: #fdba74; --alerta-suave: #2a1a10; --sombra: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -12px rgba(0,0,0,.5); }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body { margin: 0; background: var(--fundo); color: var(--texto); font: 400 17px/1.7 Geist, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--marca); }
+  :focus-visible { outline: 2px solid var(--marca); outline-offset: 3px; border-radius: 6px; }
+  .icone { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  .topo { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--fundo) 82%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--linha); }
+  .topo div { max-width: 1160px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--texto); font-weight: 600; font-size: 18px; }
+  .marca img { width: 28px; height: 28px; }
+  .topo .voltar { font-size: 15px; color: var(--suave); text-decoration: none; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 64px 24px 96px; }
+  .rotulo { font: 500 12.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--marca); }
+  h1 { font-size: clamp(36px, 5.4vw, 54px); line-height: 1.05; letter-spacing: -.04em; font-weight: 600; margin: 14px 0 14px; }
+  .lead { color: var(--suave); font-size: 19px; max-width: 640px; margin: 0 0 40px; }
+
+  .indice { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 0 0 72px; padding: 0; list-style: none; }
+  .indice a { display: flex; gap: 14px; align-items: center; text-decoration: none; color: var(--texto); background: var(--superficie); border: 1px solid var(--linha); border-radius: 16px; padding: 16px 18px; box-shadow: var(--sombra); transition: transform .15s ease, border-color .15s ease; }
+  .indice a:hover { transform: translateY(-1px); border-color: color-mix(in srgb, var(--marca) 40%, var(--linha)); }
+  .indice .bola { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--marca-suave); color: var(--marca); flex: none; }
+  .indice strong { display: block; font-weight: 600; font-size: 16.5px; line-height: 1.3; }
+  .indice span span { font-size: 14.5px; color: var(--suave); }
+  @media (max-width: 640px) { .indice { grid-template-columns: 1fr; } }
+
+  article { padding: 40px 0; border-top: 1px solid var(--linha); }
+  article h2 { font-size: clamp(26px, 3.4vw, 32px); line-height: 1.15; letter-spacing: -.03em; font-weight: 600; margin: 10px 0 12px; }
+  article > p { margin: 0 0 16px; }
+  .passos { list-style: none; margin: 20px 0; padding: 0; counter-reset: passo; }
+  .passos li { counter-increment: passo; display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid var(--linha); }
+  .passos li:first-child { border-top: 0; }
+  .passos li::before { content: counter(passo, decimal-leading-zero); font: 500 14px/1.9 var(--mono); color: var(--marca); }
+  .caminho { font-weight: 600; }
+  code { font: 500 14px var(--mono); background: var(--marca-suave); color: var(--marca); padding: 2px 6px; border-radius: 6px; }
+  .nota { display: flex; gap: 12px; align-items: flex-start; background: var(--marca-suave); border-radius: 14px; padding: 16px 18px; margin: 20px 0 0; font-size: 16px; }
+  .nota .icone { color: var(--marca); margin-top: 3px; }
+  .nota.alerta { background: var(--alerta-suave); }
+  .nota.alerta .icone { color: var(--alerta); }
+  .nota p { margin: 0; }
+
+  .contato { margin-top: 48px; background: var(--superficie); border: 1px solid var(--linha); border-radius: 20px; padding: 28px; box-shadow: var(--sombra); }
+  .contato h2 { font-size: 22px; letter-spacing: -.02em; margin: 0 0 6px; }
+  .contato p { margin: 0; color: var(--suave); }
+
+  footer { border-top: 1px solid var(--linha); color: var(--suave); font-size: 15px; }
+  footer div { max-width: 1160px; margin: 0 auto; padding: 32px 24px 44px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+  footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+  footer a { color: inherit; text-decoration: none; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-chave" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></symbol>
+  <symbol id="i-celular" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></symbol>
+  <symbol id="i-lixeira" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
+  <symbol id="i-arquivo" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></symbol>
+  <symbol id="i-mao" viewBox="0 0 24 24"><path d="M4 7V4h3"/><path d="M20 7V4h-3"/><path d="M4 17v3h3"/><path d="M20 17v3h-3"/><path d="M8 12h8"/></symbol>
+  <symbol id="i-casa" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5"/><path d="M10 21v-6h4v6"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-alerta" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+</svg>
+
+<header class="topo"><div><a class="marca" href="../"><img src="../imagens/icone.svg" alt="">Blinda</a><a class="voltar" href="../">Voltar ao site</a></div></header>
+
+<main>
+  <span class="rotulo">Ajuda</span>
+  <h1>Como podemos ajudar?</h1>
+  <p class="lead">O próprio app explica cada tela no botão (i). Aqui estão as situações em que ele não pode ajudar sozinho, como trocar de celular ou esquecer a senha mestra.</p>
+
+  <ul class="indice">
+    <li><a href="#esqueci-a-senha-mestra"><span class="bola"><svg class="icone" aria-hidden="true"><use href="#i-chave"/></svg></span><span><strong>Esqueci a senha mestra</strong><span>O que dá e o que não dá para fazer</span></span></a></li>
+    <li><a href="#celular-novo"><span class="bola"><svg class="icone" aria-hidden="true"><use href="#i-celular"/></svg></span><span><strong>Troquei ou perdi o celular</strong><span>Levar as senhas para o aparelho novo</span></span></a></li>
+    <li><a href="#desinstalei"><span class="bola"><svg class="icone" aria-hidden="true"><use href="#i-lixeira"/></svg></span><span><strong>Desinstalei o app</strong><span>Como recuperar o cofre</span></span></a></li>
+    <li><a href="#trazer-do-google"><span class="bola"><svg class="icone" aria-hidden="true"><use href="#i-arquivo"/></svg></span><span><strong>Trazer as senhas do Google</strong><span>As que o celular já salvou</span></span></a></li>
+    <li><a href="#preenchimento-automatico"><span class="bola"><svg class="icone" aria-hidden="true"><use href="#i-mao"/></svg></span><span><strong>Ligar o preenchimento automático</strong><span>No Android e no Chrome</span></span></a></li>
+    <li><a href="#familia"><span class="bola"><svg class="icone" aria-hidden="true"><use href="#i-casa"/></svg></span><span><strong>Família pela primeira vez</strong><span>Dividir um cofre com quem mora com você</span></span></a></li>
+  </ul>
+
+  <article id="esqueci-a-senha-mestra">
+    <span class="rotulo">Senha mestra</span>
+    <h2>Esqueci a senha mestra</h2>
+    <p>A senha mestra não fica guardada em lugar nenhum, nem com a gente. Por isso <strong>não existe "esqueci minha senha"</strong>: é isso que garante que só você abre o cofre.</p>
+    <ol class="passos">
+      <li><div><span class="caminho">Tente com calma.</span> Pense em variações: letras maiúsculas, acentos, espaços e números no fim. Se você ativou "Apagar após 10 tentativas erradas", o app mostra quantas tentativas restam: pare antes do fim.</div></li>
+      <li><div><span class="caminho">Se a biometria ainda abre o Blinda, aproveite agora.</span> Abra o app e anote ou copie as senhas importantes. De tempos em tempos o Blinda pede a senha mestra de novo e, a partir daí, só ela abre.</div></li>
+      <li><div><span class="caminho">Se não houver jeito, comece do zero.</span> Em Configurações do Android &gt; Apps &gt; Blinda, apague os dados do app ou desinstale e instale de novo. O cofre volta vazio e você cria uma senha mestra nova.</div></li>
+    </ol>
+    <div class="nota alerta"><svg class="icone" aria-hidden="true"><use href="#i-alerta"/></svg><p>Um backup feito com a senha esquecida também só abre com ela. Na próxima senha mestra, use uma frase fácil de lembrar e guarde uma cópia num lugar seguro, fora do celular.</p></div>
+  </article>
+
+  <article id="celular-novo">
+    <span class="rotulo">Backup</span>
+    <h2>Troquei ou perdi o celular</h2>
+    <p>Como o Blinda não usa nuvem, o que leva as senhas para outro aparelho é o <strong>backup</strong>: um arquivo <code>.blinda</code> protegido pela sua senha mestra.</p>
+    <ol class="passos">
+      <li><div><span class="caminho">No celular antigo:</span> abra o menu &gt; Backup &gt; Exportar backup, digite a senha mestra e escolha onde guardar o arquivo.</div></li>
+      <li><div><span class="caminho">Guarde o arquivo fora do celular:</span> no computador, num pen drive, no seu e-mail ou na sua nuvem. Ele só abre com a sua senha mestra.</div></li>
+      <li><div><span class="caminho">No celular novo:</span> instale o Blinda, toque em Já tenho um backup, escolha o arquivo e digite a senha mestra que valia quando o backup foi feito.</div></li>
+    </ol>
+    <div class="nota"><svg class="icone" aria-hidden="true"><use href="#i-info"/></svg><p>Perdeu o celular sem ter feito backup? Então as senhas ficaram só nele e não há como recuperá-las. Por isso o Blinda lembra você de fazer backup e mostra no sino quando ele está atrasado.</p></div>
+  </article>
+
+  <article id="desinstalei">
+    <span class="rotulo">Backup</span>
+    <h2>Desinstalei o app</h2>
+    <p>Ao desinstalar, o Android apaga o cofre junto com o app. O Blinda também não entra no backup automático do Android nem na transferência entre celulares, de propósito: assim o cofre não sai do aparelho sem você.</p>
+    <ol class="passos">
+      <li><div><span class="caminho">Instale o Blinda de novo</span> e, na primeira tela, toque em Já tenho um backup.</div></li>
+      <li><div><span class="caminho">Escolha o arquivo <code>.blinda</code> mais recente</span> e digite a senha mestra que valia quando ele foi feito.</div></li>
+    </ol>
+    <div class="nota alerta"><svg class="icone" aria-hidden="true"><use href="#i-alerta"/></svg><p>Sem um arquivo de backup, não há como trazer o cofre de volta. Para atualizar o Blinda, nunca desinstale: a versão nova instala por cima e mantém tudo.</p></div>
+  </article>
+
+  <article id="trazer-do-google">
+    <span class="rotulo">Importar</span>
+    <h2>Trazer as senhas do Google</h2>
+    <p>O Google guarda as senhas que você salvou no celular. Dá para levar uma cópia delas para o Blinda em poucos minutos.</p>
+    <ol class="passos">
+      <li><div>Abra o <span class="caminho">Chrome</span>, toque em <span class="caminho">⋮</span> e em <span class="caminho">Configurações</span>.</div></li>
+      <li><div>Toque em <span class="caminho">Preenc. automático e senhas</span> e em <span class="caminho">Gerenciador de Senhas do Google</span>.</div></li>
+      <li><div>Na aba <span class="caminho">Configurações</span>, embaixo, toque em <span class="caminho">Exportar senhas e chaves de acesso</span> e confirme com o desbloqueio do celular.</div></li>
+      <li><div>Salve o arquivo na pasta <span class="caminho">Download</span>.</div></li>
+      <li><div>No Blinda, abra o menu &gt; <span class="caminho">Backup</span> &gt; <span class="caminho">Importar CSV</span> e escolha o arquivo. Planilhas de outros gerenciadores também funcionam.</div></li>
+    </ol>
+    <div class="nota alerta"><svg class="icone" aria-hidden="true"><use href="#i-alerta"/></svg><p>O arquivo exportado guarda as senhas sem proteção. Depois de importar, apague-o da pasta Download. O Blinda lembra você disso.</p></div>
+  </article>
+
+  <article id="preenchimento-automatico">
+    <span class="rotulo">Preenchimento</span>
+    <h2>Ligar o preenchimento automático</h2>
+    <p>Com ele ligado, o Blinda sugere o usuário e a senha nos apps e sites, sem copiar e colar. Ele pede a biometria ou a senha mestra a cada uso.</p>
+    <ol class="passos">
+      <li><div>No Blinda, abra <span class="caminho">Configurações</span> &gt; <span class="caminho">Preenchimento automático</span>.</div></li>
+      <li><div><span class="caminho">Android:</span> toque em Abrir ajustes do Android e escolha o Blinda como serviço de preenchimento. Ele substitui o que estiver em uso, como o do Google.</div></li>
+      <li><div><span class="caminho">Chrome:</span> toque em Abrir ajustes do Chrome, ligue <span class="caminho">Preencher usando outro serviço</span> e reinicie o Chrome quando ele pedir.</div></li>
+    </ol>
+    <div class="nota"><svg class="icone" aria-hidden="true"><use href="#i-info"/></svg><p>Em sites, o Blinda compara o endereço com o campo Site ou app da senha; em apps, você confirma na primeira vez. Dados de banco e cartão nunca são preenchidos. Alguns navegadores, como o da Xiaomi, não pedem o preenchimento: use o Chrome.</p></div>
+  </article>
+
+  <article id="familia">
+    <span class="rotulo">Família</span>
+    <h2>Família pela primeira vez</h2>
+    <p>A Família divide um cofre com as pessoas da casa, sem internet e sem conta. O resto do seu Blinda continua só seu. As duas pessoas precisam ter o Blinda e estar juntas na hora do convite.</p>
+    <ol class="passos">
+      <li><div><span class="caminho">Crie o cofre:</span> no menu &gt; Família &gt; Criar cofre compartilhado, dê um nome e escolha as senhas que vão nele.</div></li>
+      <li><div><span class="caminho">Convide, frente a frente:</span> a outra pessoa abre Família &gt; Entrar num cofre e mostra o QR Code. Você lê com a câmera e os dois conferem o código de segurança.</div></li>
+      <li><div><span class="caminho">Envie o convite:</span> o Blinda gera um arquivo protegido. Mande pelo WhatsApp, Quick Share ou e-mail, e a pessoa abre o arquivo no Blinda.</div></li>
+      <li><div><span class="caminho">Sincronize quando mudar algo:</span> toque em Sincronizar e envie o arquivo de novo. As senhas ficam iguais nos dois celulares.</div></li>
+    </ol>
+    <div class="nota"><svg class="icone" aria-hidden="true"><use href="#i-info"/></svg><p>Só o Blinda de quem está no cofre abre esses arquivos. Quem administra o cofre escolhe se cada pessoa pode editar ou só ver.</p></div>
+  </article>
+
+  <div class="contato">
+    <h2>Não achou o que procurava?</h2>
+    <p>Escreva para <a href="mailto:suporte.blinda.app@gmail.com">suporte.blinda.app@gmail.com</a>. Nunca mande a sua senha mestra nem as suas senhas: ninguém do Blinda vai pedir.</p>
+  </div>
+</main>
+
+<footer><div><span>© 2026 Blinda</span><nav><a href="../">Início</a><a href="../politica-de-privacidade/">Política de privacidade</a><a href="mailto:suporte.blinda.app@gmail.com">Contato</a></nav></div></footer>
+</body>
+</html>

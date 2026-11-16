@@ -180,6 +180,7 @@
   summary::after { content: "+"; font: 400 22px/1 var(--mono); color: var(--marca); transition: transform .2s ease; }
   details[open] summary::after { transform: rotate(45deg); }
   details p { margin: 0 0 22px; color: var(--suave); max-width: 680px; }
+  details p a { color: var(--marca); }
 
   /* Chamada final */
   .chamada { text-align: center; padding: 0 0 112px; }
@@ -240,6 +241,7 @@
       <a href="#familia">Família</a>
       <a href="#seguranca">Segurança</a>
       <a href="#perguntas">Perguntas</a>
+      <a href="ajuda/">Ajuda</a>
       <span class="pilula">Em breve na Google Play</span>
     </nav>
   </div>
@@ -374,9 +376,9 @@
       </div>
       <div class="perguntas aparece">
         <details><summary>O Blinda funciona mesmo sem internet?</summary><p>Sim. O app não tem a permissão de internet do Android, então ele não consegue se conectar a nada. Funciona igual no modo avião.</p></details>
-        <details><summary>E se eu perder ou trocar de celular?</summary><p>Faça backup: o Blinda gera um arquivo protegido pela sua senha mestra, que você guarda onde quiser, como no computador ou num pen drive. No celular novo, é só restaurar com a mesma senha mestra. O app lembra você de fazer backup.</p></details>
-        <details><summary>E se eu esquecer a senha mestra?</summary><p>Não há como recuperar, e é justamente isso que garante que só você abre o cofre. Para o dia a dia, você pode usar a biometria, mas guarde a senha mestra num lugar seguro.</p></details>
-        <details><summary>Consigo trazer as senhas que já salvei no Google?</summary><p>Sim. O Blinda importa planilhas CSV, como a que o gerenciador de senhas do Google exporta, e mostra o passo a passo dentro do app.</p></details>
+        <details><summary>E se eu perder ou trocar de celular?</summary><p>Faça backup: o Blinda gera um arquivo protegido pela sua senha mestra, que você guarda onde quiser, como no computador ou num pen drive. No celular novo, é só restaurar com a mesma senha mestra. O app lembra você de fazer backup. <a href="ajuda/#celular-novo">Veja o passo a passo</a>.</p></details>
+        <details><summary>E se eu esquecer a senha mestra?</summary><p>Não há como recuperar, e é justamente isso que garante que só você abre o cofre. Para o dia a dia, você pode usar a biometria, mas guarde a senha mestra num lugar seguro. <a href="ajuda/#esqueci-a-senha-mestra">O que fazer se esquecer</a>.</p></details>
+        <details><summary>Consigo trazer as senhas que já salvei no Google?</summary><p>Sim. O Blinda importa planilhas CSV, como a que o gerenciador de senhas do Google exporta, e mostra o passo a passo dentro do app. <a href="ajuda/#trazer-do-google">Veja aqui também</a>.</p></details>
         <details><summary>Alguém da equipe do Blinda consegue ver minhas senhas?</summary><p>Não. Não existe servidor nem cópia das suas senhas fora do seu celular, e sem a sua senha mestra o cofre não abre.</p></details>
       </div>
     </div>
@@ -398,6 +400,7 @@
   <div class="largura">
     <a class="marca" href="./"><img src="imagens/icone.svg" alt="">Blinda</a>
     <nav aria-label="Rodapé">
+      <a href="ajuda/">Ajuda</a>
       <a href="politica-de-privacidade/">Política de privacidade</a>
       <a href="mailto:suporte.blinda.app@gmail.com">Contato</a>
       <span>© 2026 Blinda</span>
