@@ -6,29 +6,44 @@
 <title>Blinda: política de privacidade</title>
 <link rel="icon" type="image/svg+xml" href="../imagens/icone.svg">
 <style>
-  :root { --fundo:#ffffff; --texto:#1c1f24; --suave:#5b6370; --linha:#e3e6ea; --marca:#2563eb; }
-  @media (prefers-color-scheme: dark) { :root { --fundo:#121417; --texto:#e8eaed; --suave:#a2a9b4; --linha:#2a2e34; --marca:#7da2ff; } }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--fundo); color:var(--texto); font:16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  main { max-width:720px; margin:0 auto; padding:40px 16px 64px; }
-  h1 { font-size:28px; line-height:1.25; margin:0 0 4px; }
-  h2 { font-size:19px; margin:36px 0 8px; }
-  p, li { color:var(--texto); }
-  .data { color:var(--suave); margin:0 0 28px; }
-  .resumo { border:1px solid var(--linha); border-radius:12px; padding:16px 20px; }
-  .resumo p { margin:0; }
-  ul { padding-left:22px; }
-  table { width:100%; border-collapse:collapse; margin:8px 0; }
-  th, td { text-align:left; vertical-align:top; padding:10px 8px; border-bottom:1px solid var(--linha); }
-  th { color:var(--suave); font-weight:600; font-size:14px; }
-  a { color:var(--marca); }
-  .voltar { margin:0 0 24px; }
-  .voltar a { text-decoration:none; font-weight:600; }
+  @font-face { font-family: Geist; font-weight: 400; font-display: swap; src: url("../fontes/Geist_400Regular.ttf") format("truetype"); }
+  @font-face { font-family: Geist; font-weight: 600; font-display: swap; src: url("../fontes/Geist_600SemiBold.ttf") format("truetype"); }
+  @font-face { font-family: "Geist Mono"; font-weight: 500; font-display: swap; src: url("../fontes/GeistMono_500Medium.ttf") format("truetype"); }
+  :root { --fundo: #fbfcfe; --superficie: #ffffff; --texto: #0c1222; --suave: #566074; --linha: #e3e8f0; --marca: #2563eb; --marca-suave: #e8effe; --mono: "Geist Mono", ui-monospace, monospace; }
+  @media (prefers-color-scheme: dark) { :root { --fundo: #0a0d14; --superficie: #11151e; --texto: #e9edf5; --suave: #a1aabb; --linha: #222a37; --marca: #5b8cff; --marca-suave: #16213d; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--fundo); color: var(--texto); font: 400 17px/1.7 Geist, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--marca); }
+  :focus-visible { outline: 2px solid var(--marca); outline-offset: 3px; border-radius: 6px; }
+  .topo { position: sticky; top: 0; background: color-mix(in srgb, var(--fundo) 82%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--linha); }
+  .topo div { max-width: 1160px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--texto); font-weight: 600; font-size: 18px; }
+  .marca img { width: 28px; height: 28px; }
+  .topo .voltar { font-size: 15px; color: var(--suave); text-decoration: none; }
+  main { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
+  .rotulo { font: 500 12.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--marca); }
+  h1 { font-size: clamp(34px, 5vw, 48px); line-height: 1.08; letter-spacing: -.035em; font-weight: 600; margin: 14px 0 10px; }
+  .data { font: 500 13px/1.4 var(--mono); color: var(--suave); margin: 0 0 36px; }
+  .resumo { background: var(--marca-suave); border-radius: 16px; padding: 22px 24px; }
+  .resumo p { margin: 0; }
+  h2 { font-size: 21px; letter-spacing: -.015em; font-weight: 600; margin: 48px 0 10px; }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  code { font: 500 14px var(--mono); background: var(--marca-suave); color: var(--marca); padding: 2px 6px; border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 16px; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 10px 12px 0; border-bottom: 1px solid var(--linha); }
+  th { font: 500 12.5px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--suave); }
+  td:first-child { font-weight: 600; white-space: nowrap; padding-right: 18px; }
+  footer { border-top: 1px solid var(--linha); color: var(--suave); font-size: 15px; }
+  footer div { max-width: 1160px; margin: 0 auto; padding: 32px 24px 44px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+  footer a { color: inherit; text-decoration: none; }
+  @media (max-width: 600px) { td:first-child { white-space: normal; } }
 </style>
 </head>
 <body>
+<header class="topo"><div><a class="marca" href="../"><img src="../imagens/icone.svg" alt="">Blinda</a><a class="voltar" href="../">Voltar ao site</a></div></header>
 <main>
-  <p class="voltar"><a href="../">← Blinda</a></p>
+  <span class="rotulo">Privacidade</span>
   <h1>Política de privacidade do Blinda</h1>
   <p class="data">Em vigor desde 15 de novembro de 2026</p>
 
@@ -79,5 +94,6 @@
   <h2>10. Contato</h2>
   <p>Dúvidas sobre privacidade: <a href="mailto:suporte.blinda.app@gmail.com">suporte.blinda.app@gmail.com</a></p>
 </main>
+<footer><div><span>© 2026 Blinda</span><a href="mailto:suporte.blinda.app@gmail.com">suporte.blinda.app@gmail.com</a></div></footer>
 </body>
 </html>
